@@ -1,33 +1,25 @@
-// assignment code goes here
 var passwordText = document.querySelector("#password");
 var generateBtn = document.querySelector("#generate");
 var btncopyEl = document.querySelector("#copy");
 
-//Create a function for clicking on the button
 generateBtn.addEventListener("click", function () {
    
-    //Prompt to get desired character length
     var charLength = prompt("How many characters would you like your new password to be? Pick a number between 8 and 128.");
 
-    //Run program if a character range is choosen between 8 and 128;
     if ((charLength >= 8) && (charLength <= 128)) {
 
-        //create variables for password generater
         let symbols = "!'#$%&()*+-./;:<>=?@[]{}~^";
         let numbers = "0123456789";
         let lowerCase = "abcdefghijklmnopqrstuvwxyz";
         let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        //create a blank string for new password generated;
         let newPassword = "";
 
-        //prompt user which type of characters they can choose from.
         let genSymbols = confirm("Would you like to use special characters? i.e. (!, $, %, etc.)");
         let genNumbers = confirm("Would you like to use numbers?");
         let genLowerCase = confirm("Would you like to use lowercase letters?");
         let genUpperCase = confirm("Would you like to use uppercase letter?");
 
-        //create variables that adds all the new characters together
         var allCharacters = symbols + numbers + lowerCase + upperCase;
         var a = symbols + numbers + lowerCase;
         var b = symbols + numbers + upperCase;
@@ -40,7 +32,6 @@ generateBtn.addEventListener("click", function () {
         var j = numbers + upperCase;
         var k = lowerCase + upperCase;
 
-        //create if statments with loops that matches with every combination of passwords (figure out a function for this later)
         if ((genSymbols === true) && (genNumbers === true) && (genLowerCase === true) && (genUpperCase === true)) {
             for (i = 0; i < charLength; i++) {
                 let character = Math.floor(Math.random() * allCharacters.length);
@@ -132,8 +123,7 @@ generateBtn.addEventListener("click", function () {
             }
         }
 
-        //Generate new password into text area
-        passwordText.value = password;
+        passwordText.value = newPassword;
     }
 
 })
